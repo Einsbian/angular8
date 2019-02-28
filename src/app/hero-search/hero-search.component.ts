@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import { Hero } from './../class/hero';
+import { Hero } from './../interface/hero';
 import { HeroService } from './../service/hero.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class HeroSearchComponent implements OnInit {
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
+    this.searchTerms.subscribe(res=>{console.log(res)})
     this.heroes$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
