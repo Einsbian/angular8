@@ -97,4 +97,11 @@ export class HeroService {
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
+
+  putHello(option): Observable<Object> {
+    return this.http.post(`/hello`, option)
+      .pipe(
+        tap(_ => this.log('post hello')),
+      );
+  }
 }

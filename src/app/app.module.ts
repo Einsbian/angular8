@@ -4,6 +4,10 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './service/in-memory-data.service';
 
+// HttpClientInMemoryWebApiModule.forRoot(
+//   InMemoryDataService, { dataEncapsulation: false }
+// ),
+
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
@@ -29,10 +33,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
