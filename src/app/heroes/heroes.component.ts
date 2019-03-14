@@ -47,8 +47,9 @@ export class HeroesComponent implements OnInit {
 
   putRequest(){
     // this.swPushService.helloFn().then(res=>{
-      // this.heroService.putHello(res).subscribe(hello=>{
-      // });
+      this.heroService.putHello(this.swPushService.enterKey).subscribe(hello=>{
+        console.log(hello)
+      });
     // }).catch(err=>{
     //   console.log('not allowed')
     // })
